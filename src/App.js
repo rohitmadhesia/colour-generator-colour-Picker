@@ -6,15 +6,25 @@ function App() {
   const [pick, setPick] = useState(false);
   const [click, setClick] = useState(false);
 
+  const handlePicker = () => {
+    setClick(!click);
+    setPick(false);
+  };
+  const handleGenerator = () => {
+    setPick(!pick);
+    setClick(false);
+  };
+
   return (
     <>
       <div>
+      <h2 style={{ padding: "20px" }}>SetColors</h2>
         <div className="home">
-          <button onClick={() => setPick(!pick)} className="gen-btn">
+          <button onClick={() => handleGenerator()} className="gen-btn">
             {pick ? "Close the Generator" : "Open the Generator"}
           </button>
 
-          <button onClick={() => setClick(!click)} className="p-btn">
+          <button onClick={() => handlePicker()} className="p-btn">
             {click ? "Close the picker" : "Open the Picker"}
           </button>
         </div>
